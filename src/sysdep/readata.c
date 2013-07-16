@@ -24,6 +24,7 @@
 	            points is larger than (and truncated to) maxsize.
 	16nov04 pjt add suggestion that's an FAQ
         14apr10 pjt no more prototypes
+	16jul13 pjt BUFSIZ back to STRINGSIZE 
 
 Routines:
 void wiplines ARGS(( int first, int last ));
@@ -136,8 +137,8 @@ int wipopenfile(Const char *name)
 int wipreadcol(float array[], int maxsize, int nc)
 {
     char *ptr;
-    char line[BUFSIZ];
-    char copy[BUFSIZ];
+    char line[STRINGSIZE];
+    char copy[STRINGSIZE];
     int i, j, k, nxy;
     double vars;
 
@@ -166,7 +167,7 @@ int wipreadcol(float array[], int maxsize, int nc)
 
     if (LINE1 > 1) { /* Skip lines up to LINE1. */
       for (j = 1; j < LINE1; j++) {
-        if (wipinput(datafp, (char *)NULL, line, BUFSIZ) == (int)EOF)
+        if (wipinput(datafp, (char *)NULL, line, STRINGSIZE) == (int)EOF)
           goto END_OF_FILE;
       }
     }
@@ -185,7 +186,7 @@ int wipreadcol(float array[], int maxsize, int nc)
       }
     }
     for (j = 0; j < i; j++) {
-      if ((k = wipinput(datafp, (char *)NULL, line, BUFSIZ)) == (int)EOF)
+      if ((k = wipinput(datafp, (char *)NULL, line, STRINGSIZE)) == (int)EOF)
         goto END_OF_FILE;
       if (k == (int)Null) continue;               /* Skip blank lines. */
       if (nc == 0) {
@@ -231,8 +232,8 @@ END_OF_FILE:
 char *wipreadstr(int first, int second)
 {
     char *par, *ptr;
-    char line[BUFSIZ];
-    char string[BUFSIZ];
+    char line[STRINGSIZE];
+    char string[STRINGSIZE];
     register int j;
 
     if (datafp == (FILE *)NULL) {
@@ -242,11 +243,11 @@ char *wipreadstr(int first, int second)
 
     if (LINE1 > 1) {                        /* Skip lines up to LINE1. */
       for (j = 1; j < LINE1; j++)
-        if (wipinput(datafp, (char *)NULL, line, BUFSIZ) == (int)EOF)
+        if (wipinput(datafp, (char *)NULL, line, STRINGSIZE) == (int)EOF)
           goto END_OF_FILE;
     }
 
-    if ((j = wipinput(datafp, (char *)NULL, line, BUFSIZ)) != (int)EOF) {
+    if ((j = wipinput(datafp, (char *)NULL, line, STRINGSIZE)) != (int)EOF) {
       Rewind(datafp);  /* Make sure to rewind file before any returns. */
 
       if (j == (int)Null)                             /* Empty string. */
