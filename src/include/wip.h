@@ -13,6 +13,7 @@
         09jan98 jm  Removed any previous definition of TRUE/FALSE.
         09oct00 pjt MAXVAR now defined here (see also evaluate.c)
         30nov00 pjt increased STRINGSIZE to 8192
+	16jul13 pjt increased STRINGSIZE to 16384
 */
 
 #ifndef WIP_H
@@ -21,10 +22,10 @@
 #include "wipdefs.h"
 
 /* 				max string size */
-#define STRINGSIZE  8192
+#define STRINGSIZE  16384
 
 /* 				max number of contour levels */
-#define MAXCONTLEVEL 100
+#define MAXCONTLEVEL 128
 
 /* 				max number of variables allowed \0, \1, .... */
 #define MAXVAR  100

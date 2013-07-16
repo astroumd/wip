@@ -29,5 +29,5 @@
         2.3.9  28feb07 support for intel mac
 */
 #ifndef WIP_VERSION
-#define WIP_VERSION "Version: 2.3.9 28feb07"
+#define WIP_VERSION "Version: 2.3.10 16jul2013"
 #endif /* WIP_VERSION */
