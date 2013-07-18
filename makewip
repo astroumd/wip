@@ -211,6 +211,7 @@
 #    20may05 pjt better help, moved wiphelp over the the libdir
 #     2jul07 pjt more guidelines for darwin, fix g2c/gfortran for linux/mac
 #     7jul10 pjt darwin only for intel, IEEEByteSwap
+#    18jul13 pjt darwin optional -lSystemStubs
 #--
 #
 #  Set up some "standard" defaults.
@@ -600,11 +601,8 @@ else if ("$wiphost" == 'darwin') then
     else
 	set f77lib = ( $f77lib -lg2c )
     endif
-    if (-e /usr/lib/libcc_dynamic.a) then
-       set f77lib = ( $f77lib -lcc_dynamic -lSystemStubs )
-    else
-       set f77lib = ( $f77lib              -lSystemStubs )
-    endif
+    if (-e /usr/lib/libcc_dynamic.a) set f77lib = ( $f77lib -lcc_dynamic -lSystemStubs )
+    # set f77lib = ( $f77lib -lSystemStubs )
     set theM = "$fcname"
     if ($dodebug > 0) then
       set theM = "$theM -g"
