@@ -1,6 +1,18 @@
-                 Installation Instructions for WIP Version 2.3
+#    WIP
 
-    0. It is assumed that you already have retrieved and built the
+WIP is a interactive plotting frontend for PGPLOT. Originally
+written by James Morgan for BIMA. The last version was 2.3,
+maintained in CVS.
+
+Converted to GIT in July 2021, as version 3.0.
+
+
+
+# Installation Instructions
+
+
+
+1.  It is assumed that you already have retrieved and built the
     PGPLOT (Version 5.1.0 or later) graphics library.  If not, it
     is pointless to continue.  For more information on PGPLOT, look
     at the WWW URL: "http://astro.caltech.edu/~tjp/pgplot/".  Be sure
@@ -9,39 +21,21 @@
     there is a file called cpgplot.h in the same directory as the
     library archive and the two libraries (libcpgplot* libpgplot*) exist.
 
-    1. Retrieve the compressed tar file.
+    Debian-style:      sudo apt install pgplot5
+    Redhat-style:      sudo yum install pgplot-devel pgplot
+    Mac/brew:          brew install pgplot
+    Mac/port:          port install <TBD>
+
+
+1   Retrieve the code via github
     
-    This can be done one of two ways.  You can grab it from the WIP WWW
-    home page ("http://bima.astro.umd.edu/wip/") or manually from
-    anonymous ftp (ftp.astro.umd.edu).
+    git clone https://github.com/astroumd/wip
 
-    To use the anonymous ftp method, access ftp.astro.umd.edu.  Login as:
-      User: anonymous
-      Password: your return e-mail address (username@machine)
+    This will create the sub-directory wip and other subdirectories.
 
-    The following ftp commands will retrieve the compressed WIP tar file:
+3.  Create the subroutine library and the executable.
 
-      cd progs/morgan
-      binary
-      get wip2p3.tar.gz
-
-    Note that the file MUST be transferred in binary mode.
-
-    2. Extract the source code from the tar archive, e.g.
-
-      cd /home/xxx
-      gunzip -c wip2p3.tar.gz | tar xvf -
-
-    This will create the directory /home/xxx/wip and other subdirectories.
-
-    NOTE:  Some systems have an 'o' option to tar which sets the user
-    and group identifier to the user running tar, rather than those in
-    the tar file (mine).  On some systems, this option is the default.
-    If your system does not default this, then you might need to use it.
-
-    3. Create the subroutine library and the executable.
-
-    The file /home/xxx/wip/makewip is used to build WIP.  Make sure
+    The file wip/makewip is used to build WIP.  Make sure
     that you pass the proper arguments with the proper values.  This
     means that, in this example, the -wip argument should be set to
     /home/xxx/wip and -pgplot to the directory that holds the PGPLOT
@@ -86,10 +80,10 @@
     have it point to where the binary pgxwin_server (as well as grfont.dat
     and rgb.txt files) reside.
 
-    4. Copy the file /home/xxx/wip/.wipinit to your $HOME area and
+4.  Copy the file /home/xxx/wip/.wipinit to your $HOME area and
     modify it according to the instructions in the manual (see below).
 
-    5. Build and print the manual.
+5   Build and print the manual.
 
     An HTML version of the manual is available at the WWW URL:
     "http://bima.astro.umd.edu/wip/manual/wip.html"
@@ -98,7 +92,7 @@
     /home/xxx/wip/doc and read the instructions found in the README
     file there.
 
-    6. A list of changes in the various versions is also available
+6.  A list of changes in the various versions is also available
     from links of the WIP WWW site.  The HTML files are kept in the
     log subdirectory.
 
