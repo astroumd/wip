@@ -27,7 +27,9 @@
         2.3.7  07mar06 removed "hardcopy" command if -x on command line.
         2.3.8  14sep06 support for bitpix -64 fits images
         2.3.9  28feb07 support for intel mac
+
+        3.0.0  14jul21 converted for maintenance in git(hub)
 */
 #ifndef WIP_VERSION
-#define WIP_VERSION "Version: 2.3.10 16jul2013"
+#define WIP_VERSION "Version: 3.0.0 14jul2021"
 #endif /* WIP_VERSION */
